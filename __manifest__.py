@@ -11,4 +11,8 @@
     'description': """
     This is Test Module
     """,
+
+    'data': [
+        'security/ir.model.access.csv',
+    ]
 }
