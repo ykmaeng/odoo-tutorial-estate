@@ -5,8 +5,9 @@
         <field name="name">estate.property.tree</field>
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
-            <tree string="Properties~~">
+            <tree string="Properties">
                 <field name="name" string="Title"/>
+                <field name="property_type_id" string="Property Type"/>
                 <field name="postcode"/>
                 <field name="bedrooms"/>
                 <field name="living_area" string="Living Area(sqm)"/>
@@ -21,10 +22,15 @@
         <field name="name">estate.property.form</field>
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
-             <form string="Properties">
+            <form string="Properties">
               <sheet>
                   <h2> <field name="name" string="Title" placeholder="Title"/> </h2>
+                  <field name="tag_ids" string="Tags" widget="many2many_tags" placeholder="..choose tags"/>
                   <group>
+                        <group>
+                          <field name="property_type_id" string="Property Type"/>
+                        </group>
+                        <separator/>
                         <group>
                             <field name="postcode"/>
                             <field name="date_availability"/>
@@ -44,6 +50,18 @@
                                   <field name="garden"/>
                                   <field name="garden_area" string="Garden Area (sqm)"/>
                                   <field name="garden_orientation" string="Garden Orientation"/>
+                                  <field name="total_area" string="Total Area (sqm)"/>
+                                </group>
+                            </page>
+                            <page string="Offers">
+                              <tree>
+                                <field name="offer_ids"/>
+                              </tree>
+                            </page>
+                            <page string="Other Info">
+                              <group> 
+                                  <field name="buyer"/>
+                                  <field name="salesperson" string="Salesman"/>
                                 </group>
                             </page>
                         </notebook>
@@ -59,6 +77,7 @@
         <field name="arch" type="xml">
           <search string="Search Properties">
               <field name="name" string="Title" />
+              <field name="property_type_id" string="Property Type" />
               <field name="postcode"/>
               <field name="expected_price"/>
               <field name="bedrooms"/>
@@ -80,7 +99,7 @@
           <p class="o_view_nocontent_smiling_face">
             Define a new estate property 
           </p><p>
-            This is estate module for tutorial purposes.
+            This is estate module for test.
           </p><p>
             Feel free to use.
           </p>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding='utf-8'?>
+<odoo>
+
+    <record id="estate_property_type_view_tree" model="ir.ui.view">
+        <field name="name">estate.property.type.tree</field>
+        <field name="model">estate.property.type</field>
+        <field name="arch" type="xml">
+            <tree string="Property Type">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="estate_property_type_view_form" model="ir.ui.view">
+        <field name="name">estate.property.type.form</field>
+        <field name="model">estate.property.type</field>
+        <field name="arch" type="xml">
+            <form string="Property Type">
+              <sheet>
+                  <h2> <field name="name" placeholder="Type"/> </h2>
+              </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="estate_property_types_action" model="ir.actions.act_window">
+        <field name="name">Property Types</field>
+        <field name="res_model">estate.property.type</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Define a new estate property type
+          </p><p>
+            This is estate module for test.
+          </p><p>
+            Feel free to use.
+          </p>
+        </field>
+    </record>
+
+</odoo>
