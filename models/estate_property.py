@@ -37,9 +37,9 @@ class EstateProperty(models.Model):
         help="This is helpful message"
     )
     buyer = fields.Many2one('res.users', string='Buyer', index=True,
-                            tracking=True, default=lambda self: self.env.user)
+                            default=lambda self: self.env.user)
     salesperson = fields.Many2one('res.users', string='Salesperson',
-                                  index=True, tracking=True, default=lambda self: self.env.user)
+                                  index=True, default=lambda self: self.env.user)
     offer_ids = fields.One2many(
         'estate.property.offer', 'property_id', string='Offers')
     active = fields.Boolean(default=True)
